@@ -123,6 +123,12 @@ class DocumentChunker:
         else:
             chunks = self._generic_chunk(pages_content, meta)
 
+        # Ensure document number is always indexed in every chunk's identifiers
+        for c in chunks:
+            if meta.document_number and meta.document_number not in c.identifiers:
+                c.identifiers.append(meta.document_number)
+                c.identifiers.sort()
+
         return chunks
 
     def _chunk_mnt_man_cnc_02(self, pages: List[Dict], meta: DocumentMetadata) -> List[Chunk]:
@@ -274,7 +280,30 @@ class DocumentChunker:
             identifiers=extract_identifiers(alarms_text)
         ))
 
-        # Chunk: Individual Alarm AL-104 for pinpoint retrieval
+        # Chunk: Individual Alarm AL-101 (Page 1)
+        al101_text = (
+            "Alarm AL-101 Details (TX-200 CNC Turning Centre)\n"
+            "Alarm Code: AL-101\n"
+            "Meaning: Hydraulic pressure low\n"
+            "Operator action: Stop cycle. Check oil level and pressure gauge. Call maintenance if pressure stays below 3.5 MPa."
+        )
+        chunks.append(Chunk(
+            chunk_id=f"{meta.document_number}_R{meta.revision}_S06_AL101_P01",
+            document_number=meta.document_number,
+            revision=meta.revision,
+            effective_date=meta.effective_date,
+            document_status=meta.document_status,
+            section_number="6",
+            section_title="Common Alarms - AL-101",
+            page_number=1,
+            page_span=[1],
+            content=al101_text,
+            source_filename=meta.filename,
+            is_table=True,
+            identifiers=["AL-101", "TX-200"]
+        ))
+
+        # Chunk: Individual Alarm AL-104 for pinpoint retrieval (Page 2)
         al104_text = (
             "Alarm AL-104 Details (TX-200 CNC Turning Centre)\n"
             "Alarm Code: AL-104\n"
@@ -295,6 +324,75 @@ class DocumentChunker:
             source_filename=meta.filename,
             is_table=True,
             identifiers=["AL-104", "ISO VG 68", "TX-200"]
+        ))
+
+        # Chunk: Individual Alarm AL-210 (Page 2)
+        al210_text = (
+            "Alarm AL-210 Details (TX-200 CNC Turning Centre)\n"
+            "Alarm Code: AL-210\n"
+            "Meaning: Chuck clamp not confirmed\n"
+            "Operator action: Do not start cycle. Check chuck pressure and part seating. Call maintenance if repeated."
+        )
+        chunks.append(Chunk(
+            chunk_id=f"{meta.document_number}_R{meta.revision}_S06_AL210_P02",
+            document_number=meta.document_number,
+            revision=meta.revision,
+            effective_date=meta.effective_date,
+            document_status=meta.document_status,
+            section_number="6",
+            section_title="Common Alarms - AL-210",
+            page_number=2,
+            page_span=[2],
+            content=al210_text,
+            source_filename=meta.filename,
+            is_table=True,
+            identifiers=["AL-210", "TX-200"]
+        ))
+
+        # Chunk: Individual Alarm AL-305 (Page 2)
+        al305_text = (
+            "Alarm AL-305 Details (TX-200 CNC Turning Centre)\n"
+            "Alarm Code: AL-305\n"
+            "Meaning: Spindle overload\n"
+            "Operator action: Stop cycle. Check tool wear and cutting parameters. Inform shift supervisor."
+        )
+        chunks.append(Chunk(
+            chunk_id=f"{meta.document_number}_R{meta.revision}_S06_AL305_P02",
+            document_number=meta.document_number,
+            revision=meta.revision,
+            effective_date=meta.effective_date,
+            document_status=meta.document_status,
+            section_number="6",
+            section_title="Common Alarms - AL-305",
+            page_number=2,
+            page_span=[2],
+            content=al305_text,
+            source_filename=meta.filename,
+            is_table=True,
+            identifiers=["AL-305", "TX-200"]
+        ))
+
+        # Chunk: Individual Alarm AL-412 (Page 2)
+        al412_text = (
+            "Alarm AL-412 Details (TX-200 CNC Turning Centre)\n"
+            "Alarm Code: AL-412\n"
+            "Meaning: Coolant level low\n"
+            "Operator action: Top up coolant mixed to 6 - 8 % concentration."
+        )
+        chunks.append(Chunk(
+            chunk_id=f"{meta.document_number}_R{meta.revision}_S06_AL412_P02",
+            document_number=meta.document_number,
+            revision=meta.revision,
+            effective_date=meta.effective_date,
+            document_status=meta.document_status,
+            section_number="6",
+            section_title="Common Alarms - AL-412",
+            page_number=2,
+            page_span=[2],
+            content=al412_text,
+            source_filename=meta.filename,
+            is_table=True,
+            identifiers=["AL-412", "TX-200"]
         ))
 
         # Chunk: Section 7 Replacing a Hydraulic Hose (Page 2)
