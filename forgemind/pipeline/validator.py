@@ -140,3 +140,4 @@ class ResponseValidator:
                 "retrieved_chunk_count": len(retrieved_chunks)
             }
         )
+

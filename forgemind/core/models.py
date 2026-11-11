@@ -81,3 +81,4 @@ class SystemStatus(BaseModel):
     embedding_model: str
     lan_ip: str
     documents: List[DocumentMetadata]
+

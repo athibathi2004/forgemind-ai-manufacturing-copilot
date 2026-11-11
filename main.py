@@ -62,3 +62,4 @@ if __name__ == "__main__":
     lan_ip = get_host_lan_ip()
     print_banner(settings.host, settings.port, lan_ip)
     uvicorn.run("main:app", host=settings.host, port=settings.port, reload=False)
+

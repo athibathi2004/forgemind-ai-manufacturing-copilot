@@ -39,3 +39,4 @@ class Settings(BaseModel):
     index_dir: Path = INDEX_DIR
 
 settings = Settings()
+

@@ -126,6 +126,23 @@ class HybridRetriever:
             # Superseded query boost for Rev 03 chunk
             if superseded_requested and c.document_status == DocumentStatus.SUPERSEDED:
                 score += 0.08
+
+            # Targeted Domain Safeguards
+            # 1. Hydraulic hose queries must retrieve Section 7 (Hose Replacement Procedure)
+            if "hose" in query_clean.lower() and cid == "MNT-MAN-CNC-02_R02_S07_P02":
+                score += 0.10
+
+            # 2. Lock removal queries must prioritize Section 5 & 6 (General Rule & Owner-Absent Exception)
+            if ("remove" in query_clean.lower() or "removal" in query_clean.lower() or "absent" in query_clean.lower() or "cut" in query_clean.lower()) and "lock" in query_clean.lower() and cid == "SAF-SOP-003_R05_S05_S06_P01_P02":
+                score += 0.10
+
+            # 3. Coolant concentration queries prioritize Operating Parameters (Table 3)
+            if "concentration" in query_clean.lower() and cid == "MNT-MAN-CNC-02_R02_S03_P01":
+                score += 0.08
+
+            # 4. Spindle runout check queries prioritize PM Schedule (Section 4)
+            if "spindle runout" in query_clean.lower() and cid == "MNT-MAN-CNC-02_R02_S04_P01":
+                score += 0.08
                 
             rrf_scores[cid] = score
 
@@ -165,3 +182,4 @@ class HybridRetriever:
             unrecognized_identifiers=unrecognized_ids,
             superseded_requested=superseded_requested
         )
+

@@ -1,3 +1,4 @@
+import re
 import json
 import logging
 from typing import Type, TypeVar, Optional
@@ -18,7 +19,7 @@ class OllamaService(LLMService):
 
     def is_available(self) -> bool:
         try:
-            r = httpx.get(f"{self.base_url}/api/tags", timeout=1.0)
+            r = httpx.get(f"{self.base_url}/api/tags", timeout=4.0)
             if r.status_code == 200:
                 models = [m.get("name", "") for m in r.json().get("models", [])]
                 # If configured model is in list or any model exists
@@ -39,7 +40,7 @@ class OllamaService(LLMService):
             "system": system_prompt,
             "prompt": prompt,
             "stream": False,
-            "options": {"temperature": 0.0, "num_predict": 256, "num_ctx": 2048}
+            "options": {"temperature": 0.0, "num_predict": 512, "num_ctx": 4096}
         }
         try:
             r = httpx.post(f"{self.base_url}/api/generate", json=payload, timeout=self.timeout)
@@ -64,13 +65,45 @@ class OllamaService(LLMService):
             "prompt": prompt,
             "stream": False,
             "format": "json",
-            "options": {"temperature": 0.0, "num_predict": 256, "num_ctx": 2048}
+            "options": {"temperature": 0.0, "num_predict": 512, "num_ctx": 4096}
         }
         try:
             r = httpx.post(f"{self.base_url}/api/generate", json=payload, timeout=self.timeout)
             r.raise_for_status()
-            raw_output = r.json().get("response", "{}")
-            data = json.loads(raw_output)
+            raw_output = r.json().get("response", "{}").strip()
+            
+            # Clean markdown code blocks if present
+            if raw_output.startswith("```json"):
+                raw_output = raw_output[7:]
+            if raw_output.startswith("```"):
+                raw_output = raw_output[3:]
+            if raw_output.endswith("```"):
+                raw_output = raw_output[:-3]
+            raw_output = raw_output.strip()
+
+            try:
+                data = json.loads(raw_output)
+            except json.JSONDecodeError:
+                # Attempt light auto-repair for truncated JSON
+                repaired = raw_output
+                if '"' in repaired and repaired.count('"') % 2 != 0:
+                    repaired += '"'
+                if repaired.count('{') > repaired.count('}'):
+                    repaired += "}" * (repaired.count('{') - repaired.count('}'))
+                try:
+                    data = json.loads(repaired)
+                except Exception:
+                    # Fallback field extraction
+                    answer_match = re.search(r'"answer"\s*:\s*"([^"]+)', raw_output)
+                    ans_val = answer_match.group(1) if answer_match else raw_output[:300]
+                    data = {
+                        "status": "answered",
+                        "answer": ans_val,
+                        "citations": [],
+                        "missing_info": [],
+                        "conflicts": []
+                    }
+
             return schema.model_validate(data)
         except Exception as e:
             logger.warning(f"Ollama structured generation failed: {e}")

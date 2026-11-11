@@ -66,3 +66,4 @@ class GroqService(LLMService):
         content = response.choices[0].message.content or "{}"
         data = json.loads(content)
         return schema.model_validate(data)
+

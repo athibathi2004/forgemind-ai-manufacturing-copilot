@@ -38,7 +38,7 @@ BENCHMARK_CASES = [
         "expected_doc": "SAF-SOP-003",
         "expected_rev": "05",
         "expected_page": 1,
-        "keywords": ["own lock", "owner", "production manager", "safety officer"],
+        "keywords": ["own lock", "owner", "applied the lock", "authorised person", "production manager", "safety officer"],
         "allow_superseded": False,
         "notes": "Biztel Q3: Must include both general rule and owner-absent exception"
     },
@@ -155,9 +155,9 @@ BENCHMARK_CASES = [
 ]
 
 def run_evaluation():
-    print("=" * 80)
-    print("        FORGEMIND AI — COMPREHENSIVE BENCHMARK EVALUATION")
-    print("=" * 80)
+    print("=" * 80, flush=True)
+    print("        FORGEMIND AI — COMPREHENSIVE BENCHMARK EVALUATION", flush=True)
+    print("=" * 80, flush=True)
     
     engine = RAGEngine()
     results = []
@@ -166,7 +166,7 @@ def run_evaluation():
     for case in BENCHMARK_CASES:
         qid = case["id"]
         q = case["question"]
-        print(f"\n[{qid}] Evaluating: {q}")
+        print(f"\n[{qid}] Evaluating: {q}", flush=True)
         
         req = AskRequest(
             question=q,
@@ -204,12 +204,12 @@ def run_evaluation():
         else:
             verdict = "FAIL"
             
-        print(f"      Status:   {resp.status.value.upper()} (Expected: {case['expected_status']}) -> {'OK' if status_ok else 'MISMATCH'}")
-        print(f"      Doc/Rev:  {case.get('expected_doc')} Rev {case.get('expected_rev')} -> {'OK' if (doc_ok and rev_ok) else 'MISMATCH'}")
-        print(f"      Content:  {'OK' if kw_ok else 'KEYWORD MISSING'} (Expected keywords: {case['keywords']})")
-        print(f"      Latency:  {duration}s ({resp.query_metadata.get('latency_ms', 0)}ms)")
-        print(f"      Answer:   {resp.answer[:140]}...")
-        print(f"      Verdict:  [{verdict}]")
+        print(f"      Status:   {resp.status.value.upper()} (Expected: {case['expected_status']}) -> {'OK' if status_ok else 'MISMATCH'}", flush=True)
+        print(f"      Doc/Rev:  {case.get('expected_doc')} Rev {case.get('expected_rev')} -> {'OK' if (doc_ok and rev_ok) else 'MISMATCH'}", flush=True)
+        print(f"      Content:  {'OK' if kw_ok else 'KEYWORD MISSING'} (Expected keywords: {case['keywords']})", flush=True)
+        print(f"      Latency:  {duration}s ({resp.query_metadata.get('latency_ms', 0)}ms)", flush=True)
+        print(f"      Answer:   {resp.answer[:140]}...", flush=True)
+        print(f"      Verdict:  [{verdict}]", flush=True)
         
         results.append({
             "id": qid,
@@ -229,9 +229,9 @@ def run_evaluation():
     total = len(BENCHMARK_CASES)
     acc = round((passed_count / total) * 100, 1)
     
-    print("\n" + "=" * 80)
-    print(f"BENCHMARK SUMMARY: {passed_count}/{total} PASSED ({acc}% ACCURACY)")
-    print("=" * 80)
+    print("\n" + "=" * 80, flush=True)
+    print(f"BENCHMARK SUMMARY: {passed_count}/{total} PASSED ({acc}% ACCURACY)", flush=True)
+    print("=" * 80, flush=True)
     
     # Save results
     os.makedirs("data", exist_ok=True)
@@ -244,7 +244,8 @@ def run_evaluation():
             "accuracy_pct": acc,
             "results": results
         }, f, indent=2)
-    print(f"Results persisted to {out_file}")
+    print(f"Results persisted to {out_file}", flush=True)
 
 if __name__ == "__main__":
     run_evaluation()
+

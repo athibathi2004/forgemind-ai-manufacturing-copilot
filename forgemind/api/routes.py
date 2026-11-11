@@ -36,20 +36,15 @@ def get_rag_engine() -> RAGEngine:
     return _rag_engine
 
 def get_host_lan_ip() -> str:
-    """Detects the machine's primary local area network (LAN) IP address."""
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    s.settimeout(0.5)
+    """Detects the machine's primary local area network (LAN) IP address without hanging on outbound sockets."""
     try:
-        s.connect(("8.8.8.8", 80))
-        ip = s.getsockname()[0]
+        hostname = socket.gethostname()
+        ip = socket.gethostbyname(hostname)
+        if ip and ip.strip():
+            return ip
     except Exception:
-        try:
-            ip = socket.gethostbyname(socket.gethostname())
-        except Exception:
-            ip = "127.0.0.1"
-    finally:
-        s.close()
-    return ip
+        pass
+    return "127.0.0.1"
 
 @router.get("/health")
 def health_check():

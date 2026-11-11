@@ -311,3 +311,4 @@ document.addEventListener("DOMContentLoaded", () => {
   loadSystemStatus();
   loadSampleQuestions();
 });
+

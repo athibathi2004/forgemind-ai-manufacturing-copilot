@@ -29,3 +29,4 @@ class LLMService(ABC):
     def get_model_name(self) -> str:
         """Returns the specific model name in use."""
         pass
+

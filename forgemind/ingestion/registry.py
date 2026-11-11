@@ -131,3 +131,4 @@ class DocumentRegistry:
         if not matching:
             return None
         return matching[0].revision
+

@@ -421,3 +421,4 @@ python eval.py
 ## 13. Safety Disclaimer
 
 > **REFERENCE ASSISTANT ONLY**: Verify operational instructions against the latest approved QMS documentation. This application does not authorize machine operation or maintenance. All shop-floor personnel must adhere to plant EHS guidelines and authorized work permits.
+

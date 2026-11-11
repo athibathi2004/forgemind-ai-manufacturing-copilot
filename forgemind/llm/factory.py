@@ -48,3 +48,4 @@ class LLMFactory:
             )
         else:
             raise ValueError(f"Unknown LLM provider: '{provider}'. Supported: auto, groq, ollama.")
+
