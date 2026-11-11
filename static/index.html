@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ForgeMind AI — Manufacturing Intelligence Copilot</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="brand-badge">
+          <span class="brand-icon">⚙️</span>
+          <div class="brand-titles">
+            <h1 class="brand-title">ForgeMind AI</h1>
+            <p class="brand-subtitle">Manufacturing Intelligence Copilot</p>
+          </div>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="plant-indicator" title="Active Manufacturing Facility">
+          <span class="status-dot"></span>
+          <span class="plant-text">Hosur Plant &bull; Kaveri Precision</span>
+        </div>
+        <div id="lan-ip-badge" class="lan-badge" title="Connect from mobile device on same Wi-Fi">
+          <span class="lan-icon">📶</span>
+          <span id="lan-ip-text">Wi-Fi: Detecting...</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- System Status Banner & Document Governance -->
+    <section class="status-strip">
+      <div class="strip-item" id="doc-status-trigger" role="button" tabindex="0">
+        <span class="strip-label">Knowledge Base:</span>
+        <span class="strip-value" id="doc-count-badge">Loading documents...</span>
+        <span class="strip-link">&#9432; View QMS Registry</span>
+      </div>
+      <div class="strip-item">
+        <span class="strip-label">AI Engine:</span>
+        <span class="strip-value" id="engine-model-badge">Checking...</span>
+      </div>
+      <div class="strip-item">
+        <span class="strip-label">Governance:</span>
+        <span class="strip-pill pill-rev04">Rev 04 Active</span>
+        <span class="strip-pill pill-rev03">Rev 03 Superseded</span>
+      </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Query Input Card -->
+      <section class="card input-card">
+        <form id="ask-form">
+          <div class="input-header">
+            <label for="question-input" class="input-label">Shop-Floor Query</label>
+            <div class="historical-toggle-container">
+              <label class="toggle-switch">
+                <input type="checkbox" id="allow-superseded-toggle">
+                <span class="slider"></span>
+              </label>
+              <span class="toggle-label" title="Enable to search superseded historical revisions like QC-SOP-014 Rev 03">
+                Include Historical (Superseded) Documents
+              </span>
+            </div>
+          </div>
+
+          <div class="textarea-wrapper">
+            <textarea
+              id="question-input"
+              rows="3"
+              placeholder="Ask an operational question (e.g., alarm AL-104 action, coolant concentration, BH-220 tolerance, LOTO procedure)..."
+              required
+            ></textarea>
+            <div class="input-actions">
+              <button type="button" id="clear-btn" class="btn btn-ghost" title="Clear input">Clear</button>
+              <button type="submit" id="submit-btn" class="btn btn-primary">
+                <span id="btn-text">Search Copilot</span>
+                <span id="btn-spinner" class="spinner hidden"></span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Sample Questions Drawer -->
+        <div class="sample-questions-container">
+          <div class="sample-header">
+            <span class="sample-title">⚡ Quick Operational Questions:</span>
+          </div>
+          <div class="sample-chips" id="sample-chips-container">
+            <!-- Populated via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Results Card (Hidden until query run) -->
+      <section id="results-card" class="card results-card hidden">
+        <div class="results-header">
+          <div class="status-container">
+            <span class="status-label">Resolution Status:</span>
+            <span id="response-status-badge" class="response-status-badge status-answered">ANSWERED</span>
+          </div>
+          <div class="meta-indicators">
+            <span id="query-latency" class="meta-item">Latency: 0 ms</span>
+            <span id="verified-indicator" class="meta-item verified-tag">✓ Evidence Verified</span>
+          </div>
+        </div>
+
+        <!-- Synthesized Answer -->
+        <div class="answer-container">
+          <div class="answer-title">Copilot Directive:</div>
+          <div id="answer-content" class="answer-content">
+            <!-- Answer rendered here -->
+          </div>
+        </div>
+
+        <!-- Conflicts / Missing Warnings (if any) -->
+        <div id="warnings-container" class="warnings-container hidden">
+          <div id="conflicts-box" class="warning-box conflict-box hidden">
+            <strong>⚠️ Governance Conflict Detected:</strong>
+            <ul id="conflicts-list"></ul>
+          </div>
+          <div id="missing-box" class="warning-box missing-box hidden">
+            <strong>ℹ️ Information Gap:</strong>
+            <ul id="missing-list"></ul>
+          </div>
+        </div>
+
+        <!-- Evidence & Provenance Section -->
+        <div class="evidence-section">
+          <div class="evidence-header" id="evidence-toggle" role="button" tabindex="0">
+            <div class="evidence-title">
+              <span>📄 Grounded Evidence &amp; Provenance (<span id="evidence-count">0</span> Sources)</span>
+            </div>
+            <span class="toggle-icon" id="evidence-toggle-icon">▼</span>
+          </div>
+
+          <div id="evidence-cards-container" class="evidence-cards-container">
+            <!-- Evidence cards rendered here -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Document Registry Modal -->
+    <div id="doc-modal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Authorized QMS Document Registry</h2>
+          <button id="close-modal-btn" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-intro">
+            Document status derived from QMS effective dates and explicit superseding clauses. Superseded content is excluded from operational queries by default.
+          </p>
+          <div class="table-responsive">
+            <table class="qms-table">
+              <thead>
+                <tr>
+                  <th>Doc Number</th>
+                  <th>Title</th>
+                  <th>Rev</th>
+                  <th>Effective Date</th>
+                  <th>Status</th>
+                  <th>Pages</th>
+                </tr>
+              </thead>
+              <tbody id="qms-table-body">
+                <!-- Populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Safety Disclaimer Footer -->
+    <footer class="app-footer">
+      <div class="disclaimer-badge">
+        <span class="disclaimer-icon">⚠️</span>
+        <p class="disclaimer-text">
+          <strong>OPERATIONAL SAFETY NOTICE:</strong> Reference assistant only. Verify operational instructions against the latest approved QMS documentation. This application does not authorize machine operation or maintenance.
+        </p>
+      </div>
+      <div class="footer-meta">
+        <span>ForgeMind AI &bull; Version 1.0.0 &bull; BiztelAI Technical Assessment</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

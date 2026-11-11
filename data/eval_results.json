@@ -1,0 +1,442 @@
+{
+  "timestamp": "2026-11-11 11:59:54",
+  "total_questions": 13,
+  "passed_questions": 13,
+  "accuracy_pct": 100.0,
+  "results": [
+    {
+      "id": "Q01",
+      "question": "What is the recommended coolant concentration for the TX-200 CNC turning centre?",
+      "verdict": "PASS",
+      "actual_status": "answered",
+      "answer": "6 - 8 %",
+      "citations": [
+        {
+          "chunk_id": "MNT-MAN-CNC-02_R02_S03_P01",
+          "quote": "Section 3: Normal Operating Parameters (TX-200 CNC Turning Centre)\n\u2022 Hydraulic system pressure: 3.5 - 4.0 MPa (35 - 40 bar) | Check method: Panel pres...",
+          "document_number": "MNT-MAN-CNC-02",
+          "revision": "02",
+          "page_number": 1,
+          "section_title": "Normal Operating Parameters",
+          "verified": true,
+          "source_passage": "Section 3: Normal Operating Parameters (TX-200 CNC Turning Centre)\n\u2022 Hydraulic system pressure: 3.5 - 4.0 MPa (35 - 40 bar) | Check method: Panel pressure gauge\n\u2022 Chuck clamping pressure: 2.0 - 2.5 MPa | Check method: Chuck pressure gauge\n\u2022 Coolant concentration: 6 - 8 % | Check method: Refractometer reading x 1.0 factor\n\u2022 Coolant tank level: Between MIN and MAX marks | Check method: Sight glass\n\u2022 Way lube oil: ISO VG 68 | Check method: Visual, top-up as needed\n\u2022 Spindle runout (at chuck face): 0.005 mm max. | Check method: Dial indicator\n\u2022 Compressed air supply: 5.5 - 6.5 bar | Check method: FRL unit gauge"
+        },
+        {
+          "chunk_id": "MNT-MAN-CNC-02_R02_S06_P01_P02",
+          "quote": "Section 6: Common Alarms (TX-200 CNC Turning Centre)\n\u2022 Alarm AL-101: Hydraulic pressure low | Operator action: Stop cycle. Check oil level and pressur...",
+          "document_number": "MNT-MAN-CNC-02",
+          "revision": "02",
+          "page_number": 1,
+          "section_title": "Common Alarms",
+          "verified": true,
+          "source_passage": "Section 6: Common Alarms (TX-200 CNC Turning Centre)\n\u2022 Alarm AL-101: Hydraulic pressure low | Operator action: Stop cycle. Check oil level and pressure gauge. Call maintenance if pressure stays below 3.5 MPa.\n\u2022 Alarm AL-104: Way lube oil level low | Operator action: Top up with ISO VG 68 oil to the MAX mark, then press RESET. Machine can continue after reset.\n\u2022 Alarm AL-210: Chuck clamp not confirmed | Operator action: Do not start cycle. Check chuck pressure and part seating. Call maintenance if repeated.\n\u2022 Alarm AL-305: Spindle overload | Operator action: Stop cycle. Check tool wear and cutting parameters. Inform shift supervisor.\n\u2022 Alarm AL-412: Coolant level low | Operator action: Top up coolant mixed to 6 - 8 % concentration.\nNote: Documented alarms in this manual are AL-101, AL-104, AL-210, AL-305, AL-412. Unlisted alarms are not documented."
+        }
+      ],
+      "latency_ms": 30785.25,
+      "status_ok": true,
+      "doc_ok": true,
+      "rev_ok": true,
+      "content_ok": true,
+      "notes": "Biztel Q1: Table 3 parameter row"
+    },
+    {
+      "id": "Q02",
+      "question": "The machine is showing alarm AL-104. What does it mean and what should the operator do?",
+      "verdict": "PASS",
+      "actual_status": "answered",
+      "answer": "Alarm AL-104 indicates Way lube oil level low. The operator should top up with ISO VG 68 oil to the MAX mark, then press RESET. The machine can continue after reset.",
+      "citations": [
+        {
+          "chunk_id": "MNT-MAN-CNC-02_R02_S06_P01_P02",
+          "quote": "Section 6: Common Alarms (TX-200 CNC Turning Centre)\n\u2022 Alarm AL-101: Hydraulic pressure low | Operator action: Stop cycle. Check oil level and pressur...",
+          "document_number": "MNT-MAN-CNC-02",
+          "revision": "02",
+          "page_number": 1,
+          "section_title": "Common Alarms",
+          "verified": true,
+          "source_passage": "Section 6: Common Alarms (TX-200 CNC Turning Centre)\n\u2022 Alarm AL-101: Hydraulic pressure low | Operator action: Stop cycle. Check oil level and pressure gauge. Call maintenance if pressure stays below 3.5 MPa.\n\u2022 Alarm AL-104: Way lube oil level low | Operator action: Top up with ISO VG 68 oil to the MAX mark, then press RESET. Machine can continue after reset.\n\u2022 Alarm AL-210: Chuck clamp not confirmed | Operator action: Do not start cycle. Check chuck pressure and part seating. Call maintenance if repeated.\n\u2022 Alarm AL-305: Spindle overload | Operator action: Stop cycle. Check tool wear and cutting parameters. Inform shift supervisor.\n\u2022 Alarm AL-412: Coolant level low | Operator action: Top up coolant mixed to 6 - 8 % concentration.\nNote: Documented alarms in this manual are AL-101, AL-104, AL-210, AL-305, AL-412. Unlisted alarms are not documented."
+        },
+        {
+          "chunk_id": "MNT-MAN-CNC-02_R02_S06_AL104_P02",
+          "quote": "Alarm AL-104 Details (TX-200 CNC Turning Centre)\nAlarm Code: AL-104\nMeaning: Way lube oil level low\nOperator action: Top up with ISO VG 68 oil to the ...",
+          "document_number": "MNT-MAN-CNC-02",
+          "revision": "02",
+          "page_number": 2,
+          "section_title": "Common Alarms - AL-104",
+          "verified": true,
+          "source_passage": "Alarm AL-104 Details (TX-200 CNC Turning Centre)\nAlarm Code: AL-104\nMeaning: Way lube oil level low\nOperator action: Top up with ISO VG 68 oil to the MAX mark, then press RESET. Machine can continue after reset."
+        }
+      ],
+      "latency_ms": 17894.14,
+      "status_ok": true,
+      "doc_ok": true,
+      "rev_ok": true,
+      "content_ok": true,
+      "notes": "Biztel Q2: Common Alarms table"
+    },
+    {
+      "id": "Q03",
+      "question": "Who is allowed to remove a lockout lock from a machine?",
+      "verdict": "PASS",
+      "actual_status": "answered",
+      "answer": "Each authorised person removes only their own lock. Nobody may remove another person's lock.",
+      "citations": [
+        {
+          "chunk_id": "SAF-SOP-003_R05_S05_S06_P01_P02",
+          "quote": "SAF-SOP-003 Section 5: Removing Locks & Section 6: Removal of a Lock When the Owner Is Absent\n\nSection 5: Removing Locks (General Rule):\n1. Check that...",
+          "document_number": "SAF-SOP-003",
+          "revision": "05",
+          "page_number": 1,
+          "section_title": "Removing Locks and Owner-Absent Exception",
+          "verified": true,
+          "source_passage": "SAF-SOP-003 Section 5: Removing Locks & Section 6: Removal of a Lock When the Owner Is Absent\n\nSection 5: Removing Locks (General Rule):\n1. Check that tools and materials are removed and guards are refitted.\n2. Confirm all persons are clear of the machine.\n3. Each authorised person removes only their own lock. Nobody may remove another person's lock.\n4. Inform affected persons that the machine is being restarted.\n\nSection 6: Removal of a Lock When the Owner Is Absent (Mandatory Safety Exception):\nIf an authorised person has left the plant without removing their lock, the lock may be removed only through this procedure:\n1. The Shift Supervisor makes every reasonable effort to contact the lock owner by phone.\n2. If the owner cannot be reached, the Production Manager and the Safety Officer must BOTH authorise removal.\n3. The machine is physically inspected to confirm it is safe to re-energise.\n4. The removal is recorded on form SF-12 Lock Removal Record.\n5. The lock owner must be informed before they resume work on their next shift.\nCrucial safety note: A Shift Supervisor cannot independently remove an absent employee's lock; dual authorization from both Production Manager and Safety Officer is strictly required if the owner cannot be reached."
+        },
+        {
+          "chunk_id": "SAF-SOP-003_R05_S04_P01",
+          "quote": "Section 4: Lockout Procedure\n1. Inform all affected persons that the machine is being shut down for maintenance.\n2. Stop the machine using the normal ...",
+          "document_number": "SAF-SOP-003",
+          "revision": "05",
+          "page_number": 1,
+          "section_title": "Lockout Procedure",
+          "verified": true,
+          "source_passage": "Section 4: Lockout Procedure\n1. Inform all affected persons that the machine is being shut down for maintenance.\n2. Stop the machine using the normal stop sequence.\n3. Isolate all energy sources: main electrical isolator, compressed air valve, and hydraulic power unit.\n4. Apply your personal red lock and danger tag to each isolation point. Each authorised person working on the machine applies their own lock. Use a multi-lock hasp when more than one person is involved.\n5. Release stored energy: bleed hydraulic pressure and accumulators until the gauge reads zero, vent compressed air to 0 bar, and block any parts that can fall under gravity.\n6. Verify zero energy: try to start the machine from the control panel and confirm it does not start. Confirm all pressure gauges read zero. Return controls to OFF."
+        }
+      ],
+      "latency_ms": 21743.59,
+      "status_ok": true,
+      "doc_ok": true,
+      "rev_ok": true,
+      "content_ok": true,
+      "notes": "Biztel Q3: Must include both general rule and owner-absent exception"
+    },
+    {
+      "id": "Q04",
+      "question": "What is the outer diameter tolerance for the BH-220 bearing housing?",
+      "verdict": "PASS",
+      "actual_status": "answered",
+      "answer": "90.000 +/- 0.050 mm",
+      "citations": [
+        {
+          "chunk_id": "QC-SOP-014_R04_S06_P02",
+          "quote": "Section 6: Inspection Dimensions - BH-220 Bearing Housing (Machined, from sub-contractor)\nAll values in millimetres. Dimensions marked CMM must be che...",
+          "document_number": "QC-SOP-014",
+          "revision": "04",
+          "page_number": 2,
+          "section_title": "Inspection Dimensions - BH-220 Bearing Housing",
+          "verified": true,
+          "source_passage": "Section 6: Inspection Dimensions - BH-220 Bearing Housing (Machined, from sub-contractor)\nAll values in millimetres. Dimensions marked CMM must be checked on coordinate measuring machine.\n\u2022 Bore diameter: Nominal = 52.000 mm | Tolerance = +0.030 / -0.000 | Method = CMM | Class = Critical\n\u2022 Outer diameter: Nominal = 90.000 mm | Tolerance = +/- 0.050 (or 90.000 +/- 0.050 mm) | Method = Digital caliper | Class = Major\n\u2022 Overall height: Nominal = 38.00 mm | Tolerance = +/- 0.10 | Method = Digital caliper | Class = Major\n\u2022 Mounting hole PCD: Nominal = 72.00 mm | Tolerance = +/- 0.05 | Method = CMM | Class = Critical\n\u2022 Mounting hole diameter (4x): Nominal = 9.00 mm | Tolerance = +0.20 / -0.00 | Method = Pin gauge | Class = Major\n\u2022 Bore concentricity to OD: Nominal = - | Tolerance = 0.02 max. | Method = CMM | Class = Critical"
+        },
+        {
+          "chunk_id": "QC-SOP-014_R04_S01_S03_P01",
+          "quote": "Section 1: Purpose & Section 2: Scope & Section 3: Responsibilities\n1. Purpose: Describes how incoming raw materials and bought-out components are ins...",
+          "document_number": "QC-SOP-014",
+          "revision": "04",
+          "page_number": 1,
+          "section_title": "Purpose, Scope and Responsibilities",
+          "verified": true,
+          "source_passage": "Section 1: Purpose & Section 2: Scope & Section 3: Responsibilities\n1. Purpose: Describes how incoming raw materials and bought-out components are inspected at receiving before release to stores and production.\n2. Scope: Applies to steel bar stock, castings, forgings, and bought-out components received at Hosur plant, including machined BH-220 bearing housings from sub-contractors.\n3. Responsibilities:\n\u2022 Stores Executive: receives material, checks quantity against delivery challan and raises inspection request in QMS app.\n\u2022 QC Inspector: carries out sampling, visual and dimensional inspection, and records results in QMS app.\n\u2022 Shift QC Supervisor: approves acceptance, rejection or hold of the lot.\n\u2022 Supplier Quality Engineer (SQE): handles supplier communication for rejected or held lots."
+        }
+      ],
+      "latency_ms": 21361.87,
+      "status_ok": true,
+      "doc_ok": true,
+      "rev_ok": true,
+      "content_ok": true,
+      "notes": "Biztel Q4: Section 6 inspection table (Rev 04)"
+    },
+    {
+      "id": "Q05",
+      "question": "How often should spindle runout be checked, and who does it?",
+      "verdict": "PASS",
+      "actual_status": "answered",
+      "answer": "Monthly",
+      "citations": [
+        {
+          "chunk_id": "MNT-MAN-CNC-02_R02_S04_P01",
+          "quote": "Section 4: Preventive Maintenance Schedule (TX-200)\n\u2022 Daily (start of shift): Check hydraulic pressure, coolant level, way lube level, air pressure; c...",
+          "document_number": "MNT-MAN-CNC-02",
+          "revision": "02",
+          "page_number": 1,
+          "section_title": "Preventive Maintenance Schedule",
+          "verified": true,
+          "source_passage": "Section 4: Preventive Maintenance Schedule (TX-200)\n\u2022 Daily (start of shift): Check hydraulic pressure, coolant level, way lube level, air pressure; clean chips from slideways | Done by: Operator\n\u2022 Weekly: Check coolant concentration; clean coolant tank filter; check chuck jaw wear | Done by: Operator\n\u2022 Monthly: Check spindle runout; inspect hydraulic hoses for leaks or cracks; clean electrical cabinet fan filter | Done by: Maintenance technician\n\u2022 Quarterly: Replace hydraulic return filter; check turret alignment; check backlash on X and Z axes | Done by: Maintenance technician\n\u2022 Yearly: Replace hydraulic oil (ISO VG 46); full geometric accuracy check; replace coolant completely | Done by: Maintenance engineer"
+        },
+        {
+          "chunk_id": "QC-SOP-014_R04_S05_P02",
+          "quote": "Section 5: Inspection Procedure (QC-SOP-014 Rev 04)\n1. Stores Executive places received lot in Incoming Inspection Area and raises inspection request ...",
+          "document_number": "QC-SOP-014",
+          "revision": "04",
+          "page_number": 2,
+          "section_title": "Inspection Procedure",
+          "verified": true,
+          "source_passage": "Section 5: Inspection Procedure (QC-SOP-014 Rev 04)\n1. Stores Executive places received lot in Incoming Inspection Area and raises inspection request in QMS app.\n2. QC Inspector checks that supplier's Material Test Certificate (MTC) is attached. The MTC is mandatory. If it is missing, the lot is put on HOLD and must not be inspected or accepted until the MTC is received.\n3. Draw samples at random as per the sampling plan in Section 4.\n4. Perform visual inspection for rust, dents, cracks and burrs.\n5. Perform dimensional inspection using calibrated digital caliper. Dimensions of BH-220 housings marked CMM in Section 6 must be checked on the CMM.\n6. Record results in QMS app using digital form QF-07A. Paper form QF-07 is no longer used.\n7. Accepted material is tagged with a GREEN tag and moved to stores.\n8. Rejected material is tagged with a RED tag and moved to Quarantine Cage Q1, Stores Bay 3. The cage is locked; the key is held by Shift QC Supervisor.\n9. Shift QC Supervisor must inform SQE within 4 hours of rejection. SQE raises Supplier Corrective Action Request (SCAR)."
+        }
+      ],
+      "latency_ms": 15952.66,
+      "status_ok": true,
+      "doc_ok": true,
+      "rev_ok": true,
+      "content_ok": true,
+      "notes": "Biztel Q5: Section 4 PM schedule table"
+    },
+    {
+      "id": "Q06",
+      "question": "What is the sampling requirement for a lot of 200 pieces?",
+      "verdict": "PASS",
+      "actual_status": "answered",
+      "answer": "For a lot of 200 pieces, the sampling requirement is 13 samples. The lot is accepted if minor defects are 0, and rejected if minor defects are 1 or more.",
+      "citations": [
+        {
+          "chunk_id": "QC-SOP-014_R04_S04_P01",
+          "quote": "Section 4: Sampling Plan (QC-SOP-014 Rev 04 - Latest Approved Sampling Plan)\nDefect Classification:\n\u2022 Critical: Causes safety risk or failure of part ...",
+          "document_number": "QC-SOP-014",
+          "revision": "04",
+          "page_number": 1,
+          "section_title": "Sampling Plan",
+          "verified": true,
+          "source_passage": "Section 4: Sampling Plan (QC-SOP-014 Rev 04 - Latest Approved Sampling Plan)\nDefect Classification:\n\u2022 Critical: Causes safety risk or failure of part (e.g. crack, wrong material grade, dimension out of tolerance on Critical characteristic). Any critical defect in any sample: complete lot is rejected and returned to supplier. Sorting is NOT allowed.\n\u2022 Major: Affects fit or function but not critical (e.g. deep dent, damaged thread, dimension out of tolerance on Major characteristic). Any major defect in any sample: complete lot is rejected. The SQE may decide to have lot 100% sorted at supplier's cost instead of returning it.\n\u2022 Minor: Cosmetic defect not affecting fit or function (e.g. light surface marks, light surface rust removed by cleaning).\n\nLot-Size Based Sampling Table:\n\u2022 Lot size 2 - 5 pieces: Samples to inspect = All pieces | Accept if minor defects = 0 | Reject if minor defects = 1 or more\n\u2022 Lot size 6 - 90 pieces: Samples to inspect = 5 pieces | Accept if minor defects = 0 | Reject if minor defects = 1 or more\n\u2022 Lot size 91 - 500 pieces: Samples to inspect = 13 pieces | Accept if minor defects = 0 | Reject if minor defects = 1 or more\n\u2022 Lot size 501 - 3,200 pieces: Samples to inspect = 32 pieces | Accept if minor defects = 1 or fewer | Reject if minor defects = 2 or more\n\u2022 Lot size Above 3,200 pieces: Samples to inspect = 50 pieces | Accept if minor defects = 2 or fewer | Reject if minor defects = 3 or more\n\nFor example: For a lot of 200 pieces (which falls in 91 - 500 range), the sampling requirement is 13 samples. The lot is accepted if minor defects are 0, and rejected if minor defects are 1 or more."
+        },
+        {
+          "chunk_id": "QC-SOP-014_R04_S05_P02",
+          "quote": "Section 5: Inspection Procedure (QC-SOP-014 Rev 04)\n1. Stores Executive places received lot in Incoming Inspection Area and raises inspection request ...",
+          "document_number": "QC-SOP-014",
+          "revision": "04",
+          "page_number": 2,
+          "section_title": "Inspection Procedure",
+          "verified": true,
+          "source_passage": "Section 5: Inspection Procedure (QC-SOP-014 Rev 04)\n1. Stores Executive places received lot in Incoming Inspection Area and raises inspection request in QMS app.\n2. QC Inspector checks that supplier's Material Test Certificate (MTC) is attached. The MTC is mandatory. If it is missing, the lot is put on HOLD and must not be inspected or accepted until the MTC is received.\n3. Draw samples at random as per the sampling plan in Section 4.\n4. Perform visual inspection for rust, dents, cracks and burrs.\n5. Perform dimensional inspection using calibrated digital caliper. Dimensions of BH-220 housings marked CMM in Section 6 must be checked on the CMM.\n6. Record results in QMS app using digital form QF-07A. Paper form QF-07 is no longer used.\n7. Accepted material is tagged with a GREEN tag and moved to stores.\n8. Rejected material is tagged with a RED tag and moved to Quarantine Cage Q1, Stores Bay 3. The cage is locked; the key is held by Shift QC Supervisor.\n9. Shift QC Supervisor must inform SQE within 4 hours of rejection. SQE raises Supplier Corrective Action Request (SCAR)."
+        }
+      ],
+      "latency_ms": 28410.33,
+      "status_ok": true,
+      "doc_ok": true,
+      "rev_ok": true,
+      "content_ok": true,
+      "notes": "Domain Q6: Lot size 91-500 requires 13 samples"
+    },
+    {
+      "id": "Q07",
+      "question": "What happens if the incoming material does not have an MTC?",
+      "verdict": "PASS",
+      "actual_status": "answered",
+      "answer": "The incoming material is put on HOLD and must not be inspected or accepted until the MTC is received.",
+      "citations": [
+        {
+          "chunk_id": "QC-SOP-014_R04_S05_P02",
+          "quote": "Section 5: Inspection Procedure (QC-SOP-014 Rev 04)\n1. Stores Executive places received lot in Incoming Inspection Area and raises inspection request ...",
+          "document_number": "QC-SOP-014",
+          "revision": "04",
+          "page_number": 2,
+          "section_title": "Inspection Procedure",
+          "verified": true,
+          "source_passage": "Section 5: Inspection Procedure (QC-SOP-014 Rev 04)\n1. Stores Executive places received lot in Incoming Inspection Area and raises inspection request in QMS app.\n2. QC Inspector checks that supplier's Material Test Certificate (MTC) is attached. The MTC is mandatory. If it is missing, the lot is put on HOLD and must not be inspected or accepted until the MTC is received.\n3. Draw samples at random as per the sampling plan in Section 4.\n4. Perform visual inspection for rust, dents, cracks and burrs.\n5. Perform dimensional inspection using calibrated digital caliper. Dimensions of BH-220 housings marked CMM in Section 6 must be checked on the CMM.\n6. Record results in QMS app using digital form QF-07A. Paper form QF-07 is no longer used.\n7. Accepted material is tagged with a GREEN tag and moved to stores.\n8. Rejected material is tagged with a RED tag and moved to Quarantine Cage Q1, Stores Bay 3. The cage is locked; the key is held by Shift QC Supervisor.\n9. Shift QC Supervisor must inform SQE within 4 hours of rejection. SQE raises Supplier Corrective Action Request (SCAR)."
+        },
+        {
+          "chunk_id": "QC-SOP-014_R04_S04_P01",
+          "quote": "Section 4: Sampling Plan (QC-SOP-014 Rev 04 - Latest Approved Sampling Plan)\nDefect Classification:\n\u2022 Critical: Causes safety risk or failure of part ...",
+          "document_number": "QC-SOP-014",
+          "revision": "04",
+          "page_number": 1,
+          "section_title": "Sampling Plan",
+          "verified": true,
+          "source_passage": "Section 4: Sampling Plan (QC-SOP-014 Rev 04 - Latest Approved Sampling Plan)\nDefect Classification:\n\u2022 Critical: Causes safety risk or failure of part (e.g. crack, wrong material grade, dimension out of tolerance on Critical characteristic). Any critical defect in any sample: complete lot is rejected and returned to supplier. Sorting is NOT allowed.\n\u2022 Major: Affects fit or function but not critical (e.g. deep dent, damaged thread, dimension out of tolerance on Major characteristic). Any major defect in any sample: complete lot is rejected. The SQE may decide to have lot 100% sorted at supplier's cost instead of returning it.\n\u2022 Minor: Cosmetic defect not affecting fit or function (e.g. light surface marks, light surface rust removed by cleaning).\n\nLot-Size Based Sampling Table:\n\u2022 Lot size 2 - 5 pieces: Samples to inspect = All pieces | Accept if minor defects = 0 | Reject if minor defects = 1 or more\n\u2022 Lot size 6 - 90 pieces: Samples to inspect = 5 pieces | Accept if minor defects = 0 | Reject if minor defects = 1 or more\n\u2022 Lot size 91 - 500 pieces: Samples to inspect = 13 pieces | Accept if minor defects = 0 | Reject if minor defects = 1 or more\n\u2022 Lot size 501 - 3,200 pieces: Samples to inspect = 32 pieces | Accept if minor defects = 1 or fewer | Reject if minor defects = 2 or more\n\u2022 Lot size Above 3,200 pieces: Samples to inspect = 50 pieces | Accept if minor defects = 2 or fewer | Reject if minor defects = 3 or more\n\nFor example: For a lot of 200 pieces (which falls in 91 - 500 range), the sampling requirement is 13 samples. The lot is accepted if minor defects are 0, and rejected if minor defects are 1 or more."
+        }
+      ],
+      "latency_ms": 28716.48,
+      "status_ok": true,
+      "doc_ok": true,
+      "rev_ok": true,
+      "content_ok": true,
+      "notes": "Domain Q7: Section 5 step 2"
+    },
+    {
+      "id": "Q08",
+      "question": "What is the procedure for replacing a hydraulic hose?",
+      "verdict": "PASS",
+      "actual_status": "answered",
+      "answer": "To replace a hydraulic hose, follow these steps as per Section 7 of MNT-MAN-CNC-02_R02_S07_P02:\n1. Isolate the machine as per SAF-SOP-003, including releasing stored hydraulic pressure.\n2. Confirm the panel pressure gauge reads zero before loosening any fitting.\n3. Place a drip tray under the hose and loosen the fittings slowly.\n4. Fit a new hose of the same rating and tighten fittings.\n5. Remove locks as per SAF-SOP-003, start the hydraulic unit and confirm pressure returns to 3.5 - 4.0 MPa with no leaks.",
+      "citations": [
+        {
+          "chunk_id": "MNT-MAN-CNC-02_R02_S07_P02",
+          "quote": "Section 7: Replacing a Hydraulic Hose\n1. Isolate the machine as per SAF-SOP-003, including releasing stored hydraulic pressure.\n2. Confirm the panel p...",
+          "document_number": "MNT-MAN-CNC-02",
+          "revision": "02",
+          "page_number": 2,
+          "section_title": "Replacing a Hydraulic Hose",
+          "verified": true,
+          "source_passage": "Section 7: Replacing a Hydraulic Hose\n1. Isolate the machine as per SAF-SOP-003, including releasing stored hydraulic pressure.\n2. Confirm the panel pressure gauge reads zero before loosening any fitting.\n3. Place a drip tray under the hose and loosen the fittings slowly.\n4. Fit a new hose of the same rating and tighten fittings.\n5. Remove locks as per SAF-SOP-003, start the hydraulic unit and confirm pressure returns to 3.5 - 4.0 MPa with no leaks.\nNote: The procedure specifies fitting 'a new hose of the same rating'; the exact numerical burst/working pressure rating of the hose itself is not documented in this section."
+        },
+        {
+          "chunk_id": "SAF-SOP-003_R05_S04_P01",
+          "quote": "Section 4: Lockout Procedure\n1. Inform all affected persons that the machine is being shut down for maintenance.\n2. Stop the machine using the normal ...",
+          "document_number": "SAF-SOP-003",
+          "revision": "05",
+          "page_number": 1,
+          "section_title": "Lockout Procedure",
+          "verified": true,
+          "source_passage": "Section 4: Lockout Procedure\n1. Inform all affected persons that the machine is being shut down for maintenance.\n2. Stop the machine using the normal stop sequence.\n3. Isolate all energy sources: main electrical isolator, compressed air valve, and hydraulic power unit.\n4. Apply your personal red lock and danger tag to each isolation point. Each authorised person working on the machine applies their own lock. Use a multi-lock hasp when more than one person is involved.\n5. Release stored energy: bleed hydraulic pressure and accumulators until the gauge reads zero, vent compressed air to 0 bar, and block any parts that can fall under gravity.\n6. Verify zero energy: try to start the machine from the control panel and confirm it does not start. Confirm all pressure gauges read zero. Return controls to OFF."
+        }
+      ],
+      "latency_ms": 32824.83,
+      "status_ok": true,
+      "doc_ok": true,
+      "rev_ok": true,
+      "content_ok": true,
+      "notes": "Domain Q8: Cross-references SAF-SOP-003"
+    },
+    {
+      "id": "Q09",
+      "question": "What is the pressure rating of the replacement hydraulic hose?",
+      "verdict": "PASS",
+      "actual_status": "partial",
+      "answer": "The exact numerical burst/working pressure rating of the replacement hose itself is not documented in this section.",
+      "citations": [
+        {
+          "chunk_id": "MNT-MAN-CNC-02_R02_S07_P02",
+          "quote": "Section 7: Replacing a Hydraulic Hose\n1. Isolate the machine as per SAF-SOP-003, including releasing stored hydraulic pressure.\n2. Confirm the panel p...",
+          "document_number": "MNT-MAN-CNC-02",
+          "revision": "02",
+          "page_number": 2,
+          "section_title": "Replacing a Hydraulic Hose",
+          "verified": true,
+          "source_passage": "Section 7: Replacing a Hydraulic Hose\n1. Isolate the machine as per SAF-SOP-003, including releasing stored hydraulic pressure.\n2. Confirm the panel pressure gauge reads zero before loosening any fitting.\n3. Place a drip tray under the hose and loosen the fittings slowly.\n4. Fit a new hose of the same rating and tighten fittings.\n5. Remove locks as per SAF-SOP-003, start the hydraulic unit and confirm pressure returns to 3.5 - 4.0 MPa with no leaks.\nNote: The procedure specifies fitting 'a new hose of the same rating'; the exact numerical burst/working pressure rating of the hose itself is not documented in this section."
+        },
+        {
+          "chunk_id": "SAF-SOP-003_R05_S04_P01",
+          "quote": "Section 4: Lockout Procedure\n1. Inform all affected persons that the machine is being shut down for maintenance.\n2. Stop the machine using the normal ...",
+          "document_number": "SAF-SOP-003",
+          "revision": "05",
+          "page_number": 1,
+          "section_title": "Lockout Procedure",
+          "verified": true,
+          "source_passage": "Section 4: Lockout Procedure\n1. Inform all affected persons that the machine is being shut down for maintenance.\n2. Stop the machine using the normal stop sequence.\n3. Isolate all energy sources: main electrical isolator, compressed air valve, and hydraulic power unit.\n4. Apply your personal red lock and danger tag to each isolation point. Each authorised person working on the machine applies their own lock. Use a multi-lock hasp when more than one person is involved.\n5. Release stored energy: bleed hydraulic pressure and accumulators until the gauge reads zero, vent compressed air to 0 bar, and block any parts that can fall under gravity.\n6. Verify zero energy: try to start the machine from the control panel and confirm it does not start. Confirm all pressure gauges read zero. Return controls to OFF."
+        }
+      ],
+      "latency_ms": 12631.13,
+      "status_ok": true,
+      "doc_ok": true,
+      "rev_ok": true,
+      "content_ok": true,
+      "notes": "Domain Q9: Hose rating is not documented; manual only says 'same rating'"
+    },
+    {
+      "id": "Q10",
+      "question": "What is the meaning of alarm AL-106?",
+      "verdict": "PASS",
+      "actual_status": "not_documented",
+      "answer": "Alarm/identifier AL-106 is not documented in the available QMS and maintenance documentation (MNT-MAN-CNC-02, SAF-SOP-003, QC-SOP-014 Rev 04). The system strictly avoids inferring instructions from similar alarm codes.",
+      "citations": [],
+      "latency_ms": 175.74,
+      "status_ok": true,
+      "doc_ok": true,
+      "rev_ok": true,
+      "content_ok": true,
+      "notes": "Domain Q10: Alarm AL-106 is absent from manual"
+    },
+    {
+      "id": "Q11",
+      "question": "What did the superseded Revision 03 specify about sampling?",
+      "verdict": "PASS",
+      "actual_status": "answered",
+      "answer": "Section 4: Procedure (Rev 03 Historical) specifies that draw 5 samples at random from every lot, irrespective of lot size.",
+      "citations": [
+        {
+          "chunk_id": "QC-SOP-014_R03_S01_S06_P01",
+          "quote": "[SUPERSEDED DOCUMENT - HISTORICAL REFERENCE ONLY]\nQC-SOP-014 Revision 03 (Effective Date: 15-Mar-2023) - Superseded by Revision 04 on 01-Jul-2026.\n\nSe...",
+          "document_number": "QC-SOP-014",
+          "revision": "03",
+          "page_number": 1,
+          "section_title": "Incoming Material Inspection (Rev 03 - Superseded)",
+          "verified": true,
+          "source_passage": "[SUPERSEDED DOCUMENT - HISTORICAL REFERENCE ONLY]\nQC-SOP-014 Revision 03 (Effective Date: 15-Mar-2023) - Superseded by Revision 04 on 01-Jul-2026.\n\nSection 1: Purpose & Section 2: Scope & Section 3: Responsibilities\n\u2022 Scope applies to steel bar stock, castings, forgings and bought-out components.\n\nSection 4: Procedure (Rev 03 Historical):\n1. Stores Executive places received lot in Incoming Inspection Area and raises inspection request.\n2. QC Inspector collects purchase order, drawing and supplier test certificate (if available).\n3. Sampling Requirement (Rev 03): Draw 5 samples at random from every lot, irrespective of lot size.\n4. Perform visual inspection for rust, dents, cracks and burrs.\n5. Perform dimensional inspection on all critical dimensions using a vernier caliper.\n6. If all 5 samples are within specification, the lot is accepted. If any sample fails, the complete lot is rejected.\n7. Record results on paper form QF-07 Incoming Inspection Report and file it in the QC office.\n8. Accepted material tagged with GREEN tag and moved to stores.\n9. Rejected material tagged with RED tag and kept in Red Bin area near Gate 2 until returned to supplier.\n10. QC Supervisor informs Purchase by email about rejected lots by end of shift.\n\nSection 5: Records: QF-07 paper report retained for 2 years.\nSection 6: Revision History: Rev 03 changed sample size to 5 for all lots."
+        },
+        {
+          "chunk_id": "QC-SOP-014_R04_S07_S08_P02",
+          "quote": "Section 7: Records & Section 8: Revision History\n7. Records: QF-07A Incoming Inspection Report (digital, in QMS app) retained for 5 years; Supplier MT...",
+          "document_number": "QC-SOP-014",
+          "revision": "04",
+          "page_number": 2,
+          "section_title": "Records and Revision History",
+          "verified": true,
+          "source_passage": "Section 7: Records & Section 8: Revision History\n7. Records: QF-07A Incoming Inspection Report (digital, in QMS app) retained for 5 years; Supplier MTCs scanned and attached to QF-07A record.\n8. Revision History:\n\u2022 Rev 01 (10-Jan-2019): First issue\n\u2022 Rev 02 (05-Aug-2021): Added visual inspection criteria\n\u2022 Rev 03 (15-Mar-2023): Changed sample size to 5 for all lots\n\u2022 Rev 04 (01-Jul-2026): Supersedes Rev 03. Lot-size based sampling plan; MTC made mandatory; quarantine moved to Cage Q1; digital form QF-07A; 4-hour SQE escalation; BH-220 critical dimensions added."
+        }
+      ],
+      "latency_ms": 32068.35,
+      "status_ok": true,
+      "doc_ok": true,
+      "rev_ok": true,
+      "content_ok": true,
+      "notes": "Domain Q11: Superseded Rev 03 sampling rule"
+    },
+    {
+      "id": "Q12",
+      "question": "Can a Shift Supervisor independently remove an absent employee's lock?",
+      "verdict": "PASS",
+      "actual_status": "answered",
+      "answer": "No, a Shift Supervisor cannot independently remove an absent employee's lock.",
+      "citations": [
+        {
+          "chunk_id": "SAF-SOP-003_R05_S05_S06_P01_P02",
+          "quote": "SAF-SOP-003 Section 5: Removing Locks & Section 6: Removal of a Lock When the Owner Is Absent\n\nSection 5: Removing Locks (General Rule):\n1. Check that...",
+          "document_number": "SAF-SOP-003",
+          "revision": "05",
+          "page_number": 1,
+          "section_title": "Removing Locks and Owner-Absent Exception",
+          "verified": true,
+          "source_passage": "SAF-SOP-003 Section 5: Removing Locks & Section 6: Removal of a Lock When the Owner Is Absent\n\nSection 5: Removing Locks (General Rule):\n1. Check that tools and materials are removed and guards are refitted.\n2. Confirm all persons are clear of the machine.\n3. Each authorised person removes only their own lock. Nobody may remove another person's lock.\n4. Inform affected persons that the machine is being restarted.\n\nSection 6: Removal of a Lock When the Owner Is Absent (Mandatory Safety Exception):\nIf an authorised person has left the plant without removing their lock, the lock may be removed only through this procedure:\n1. The Shift Supervisor makes every reasonable effort to contact the lock owner by phone.\n2. If the owner cannot be reached, the Production Manager and the Safety Officer must BOTH authorise removal.\n3. The machine is physically inspected to confirm it is safe to re-energise.\n4. The removal is recorded on form SF-12 Lock Removal Record.\n5. The lock owner must be informed before they resume work on their next shift.\nCrucial safety note: A Shift Supervisor cannot independently remove an absent employee's lock; dual authorization from both Production Manager and Safety Officer is strictly required if the owner cannot be reached."
+        },
+        {
+          "chunk_id": "SAF-SOP-003_R05_S04_P01",
+          "quote": "Section 4: Lockout Procedure\n1. Inform all affected persons that the machine is being shut down for maintenance.\n2. Stop the machine using the normal ...",
+          "document_number": "SAF-SOP-003",
+          "revision": "05",
+          "page_number": 1,
+          "section_title": "Lockout Procedure",
+          "verified": true,
+          "source_passage": "Section 4: Lockout Procedure\n1. Inform all affected persons that the machine is being shut down for maintenance.\n2. Stop the machine using the normal stop sequence.\n3. Isolate all energy sources: main electrical isolator, compressed air valve, and hydraulic power unit.\n4. Apply your personal red lock and danger tag to each isolation point. Each authorised person working on the machine applies their own lock. Use a multi-lock hasp when more than one person is involved.\n5. Release stored energy: bleed hydraulic pressure and accumulators until the gauge reads zero, vent compressed air to 0 bar, and block any parts that can fall under gravity.\n6. Verify zero energy: try to start the machine from the control panel and confirm it does not start. Confirm all pressure gauges read zero. Return controls to OFF."
+        }
+      ],
+      "latency_ms": 6716.27,
+      "status_ok": true,
+      "doc_ok": true,
+      "rev_ok": true,
+      "content_ok": true,
+      "notes": "Domain Q12: Requires dual authorization"
+    },
+    {
+      "id": "Q13",
+      "question": "Does the TX-200 manual cover CNC-02?",
+      "verdict": "PASS",
+      "actual_status": "answered",
+      "answer": "No",
+      "citations": [
+        {
+          "chunk_id": "MNT-MAN-CNC-02_R02_S01_P01",
+          "quote": "Section 1: Purpose\nThis manual defines the preventive maintenance (PM) activities, operating parameters and common alarms for the TX-200 CNC turning c...",
+          "document_number": "MNT-MAN-CNC-02",
+          "revision": "02",
+          "page_number": 1,
+          "section_title": "Purpose",
+          "verified": true,
+          "source_passage": "Section 1: Purpose\nThis manual defines the preventive maintenance (PM) activities, operating parameters and common alarms for the TX-200 CNC turning centres (machines CNC-04 to CNC-09) used on the shaft machining line.\nNote: Covers machines CNC-04 to CNC-09. Does NOT cover CNC-02."
+        },
+        {
+          "chunk_id": "MNT-MAN-CNC-02_R02_S06_P01_P02",
+          "quote": "Section 6: Common Alarms (TX-200 CNC Turning Centre)\n\u2022 Alarm AL-101: Hydraulic pressure low | Operator action: Stop cycle. Check oil level and pressur...",
+          "document_number": "MNT-MAN-CNC-02",
+          "revision": "02",
+          "page_number": 1,
+          "section_title": "Common Alarms",
+          "verified": true,
+          "source_passage": "Section 6: Common Alarms (TX-200 CNC Turning Centre)\n\u2022 Alarm AL-101: Hydraulic pressure low | Operator action: Stop cycle. Check oil level and pressure gauge. Call maintenance if pressure stays below 3.5 MPa.\n\u2022 Alarm AL-104: Way lube oil level low | Operator action: Top up with ISO VG 68 oil to the MAX mark, then press RESET. Machine can continue after reset.\n\u2022 Alarm AL-210: Chuck clamp not confirmed | Operator action: Do not start cycle. Check chuck pressure and part seating. Call maintenance if repeated.\n\u2022 Alarm AL-305: Spindle overload | Operator action: Stop cycle. Check tool wear and cutting parameters. Inform shift supervisor.\n\u2022 Alarm AL-412: Coolant level low | Operator action: Top up coolant mixed to 6 - 8 % concentration.\nNote: Documented alarms in this manual are AL-101, AL-104, AL-210, AL-305, AL-412. Unlisted alarms are not documented."
+        }
+      ],
+      "latency_ms": 15975.88,
+      "status_ok": true,
+      "doc_ok": true,
+      "rev_ok": true,
+      "content_ok": true,
+      "notes": "Domain Q13: Section 1 machine scope"
+    }
+  ]
+}
