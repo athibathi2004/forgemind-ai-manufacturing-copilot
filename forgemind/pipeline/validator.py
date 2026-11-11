@@ -72,12 +72,14 @@ class ResponseValidator:
             if chunk.document_status == DocumentStatus.SUPERSEDED:
                 has_superseded_citation = True
 
+            span_val = f"{chunk.page_span[0]}–{chunk.page_span[-1]}" if len(chunk.page_span) > 1 else str(chunk.page_number)
             validated_citations.append(Citation(
                 chunk_id=chunk.chunk_id,
                 quote=cit.quote,
                 document_number=chunk.document_number,
                 revision=chunk.revision,
                 page_number=chunk.page_number,
+                page_span=span_val,
                 section_title=chunk.section_title,
                 verified=is_verified,
                 source_passage=chunk.content.strip()
@@ -87,12 +89,14 @@ class ResponseValidator:
         # attach the top retrieved chunk as grounded evidence
         if not validated_citations and retrieved_chunks:
             for c in retrieved_chunks[:2]:
+                span_val = f"{c.page_span[0]}–{c.page_span[-1]}" if len(c.page_span) > 1 else str(c.page_number)
                 validated_citations.append(Citation(
                     chunk_id=c.chunk_id,
                     quote=c.content[:150] + "...",
                     document_number=c.document_number,
                     revision=c.revision,
                     page_number=c.page_number,
+                    page_span=span_val,
                     section_title=c.section_title,
                     verified=True,
                     source_passage=c.content.strip()

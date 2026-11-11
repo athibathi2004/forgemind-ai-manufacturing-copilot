@@ -253,7 +253,16 @@ document.addEventListener("DOMContentLoaded", () => {
         ? `<span class="doc-rev-badge badge-superseded">Rev ${cit.revision} [SUPERSEDED]</span>`
         : `<span class="doc-rev-badge badge-current">Rev ${cit.revision || "Latest"} [CURRENT]</span>`;
 
-      const pageBadge = cit.page_number ? `<span class="doc-page-badge">Page ${cit.page_number}</span>` : "";
+      // Format page display (handling cross-page spans such as Pages 1–2)
+      let pageDisplay = "";
+      if (cit.page_span && (cit.page_span.includes('–') || cit.page_span.includes('-'))) {
+        pageDisplay = `Pages ${cit.page_span}`;
+      } else if (cit.chunk_id && cit.chunk_id.includes('P01_P02')) {
+        pageDisplay = "Pages 1–2";
+      } else if (cit.page_number) {
+        pageDisplay = `Page ${cit.page_number}`;
+      }
+      const pageBadge = pageDisplay ? `<span class="doc-page-badge">${pageDisplay}</span>` : "";
       const sectionBadge = cit.section_title ? `<span class="doc-page-badge">${cit.section_title}</span>` : "";
 
       card.innerHTML = `

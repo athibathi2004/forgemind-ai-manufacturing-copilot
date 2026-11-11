@@ -1,5 +1,6 @@
-# Environment variables
+# Environment variables and secrets
 .env
+.env.*
 *.env.local
 
 # Python / Virtual Environment
@@ -12,6 +13,17 @@ __pycache__/
 *$py.class
 *.so
 .pytest_cache/
+
+# Model checkpoints & weights
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.onnx
+
+# Logs and debug output
+*.log
+logs/
 
 # Storage & Indices
 data/indices/

@@ -186,6 +186,7 @@ def test_regression_fix1_loto_completeness(engine):
     assert cit.document_number == "SAF-SOP-003"
     assert cit.revision == "05"
     assert cit.page_number == 1
+    assert cit.page_span in ("1–2", "1-2")
     assert cit.verified is True
 
 def test_regression_fix1_loto_supervisor_independent(engine):

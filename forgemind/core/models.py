@@ -47,6 +47,7 @@ class Citation(BaseModel):
     document_number: Optional[str] = None
     revision: Optional[str] = None
     page_number: Optional[int] = None
+    page_span: Optional[str] = None
     section_title: Optional[str] = None
     verified: bool = False
     source_passage: Optional[str] = None

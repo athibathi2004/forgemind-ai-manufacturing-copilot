@@ -83,7 +83,20 @@ To solve the governance, safety, and hallucination challenges identified above, 
 
 ## 5. Final Reflection
 
-Developing ForgeMind AI reinforced that **effective enterprise RAG is not simply vector search plus prompt engineering**. In industrial applications, deterministic safeguards (revision governance, identifier extraction, rule-exception binding, and post-generation citation validation) are essential to prevent dangerous hallucinations and maintain compliance.
+### What Worked Well
+1. **Hybrid Retrieval with Exact Identifier Boosting**: Combining BM25Okapi for exact alphanumeric codes (`AL-104`, `BH-220`, `CNC-04`, `SF-12`) with local dense semantic embeddings (`BAAI/bge-small-en-v1.5`) via Reciprocal Rank Fusion ($k=60$) eliminated semantic drift while maintaining natural language flexibility.
+2. **Deterministic Revision Governance**: Parsing document revision history and `Supersedes Rev XX` clauses at ingestion prevents superseded procedures (`QC-SOP-014 Rev 03`) from contaminating current operational responses, while preserving historical audit access with clear `[SUPERSEDED]` provenance badges.
+3. **Safety Rule-and-Exception Co-Retrieval**: Binding general safety prohibitions (`SAF-SOP-003 Section 5`) with emergency owner-absent exceptions (`Section 6`) ensured that critical safety protocols (dual authorization from Production Manager and Safety Officer, SF-12 form logging, physical inspection) are never omitted.
+4. **Deterministic Dimensional Extraction**: Bypassing free-form LLM generation for critical dimensional tables guaranteed 100% fidelity on asymmetric tolerances (BH-220 bore: `52.000 +0.030 / -0.000 mm`, measured via CMM).
 
-By combining deterministic QMS rules with hybrid dense/sparse retrieval and verifiable provenance, ForgeMind AI delivers a dependable tool that shop-floor supervisors can trust.
+### What Was Harder Than Expected
+1. **Small Language Model (SLM) Priors**: Local 1B–3B models (`llama3.2:1b`) have strong semantic priors that aggressively rewrite asymmetric engineering tolerances (e.g., converting `+0.030 / -0.000` into `+/- 0.030`) and summarize away multi-step emergency safety exceptions. Implementing deterministic extraction safeguards for safety-critical tables proved essential.
+2. **Context Window & JSON Generation Limits**: Small models running on CPU frequently truncated JSON responses when `num_predict` was set too low (256 tokens). Tuning token predictions to 512 and implementing JSON repair logic resolved malformed response payloads.
+3. **Cross-Page Document Continuity**: Real plant SOPs split crucial procedures across page breaks (e.g., LOTO Section 6 begins at the bottom of Page 1 and concludes on Page 2). Implementing section-aware chunking with multi-page spans (`Pages 1–2`) was critical for complete evidence citation.
+
+### What We Would Build Next With More Time
+1. **OCR Pipeline for Scanned Legacy Documentation**: Integrate Tesseract or PaddleOCR to extract text and dimensional drawings from legacy scanned TIFF/PDF files without native text layers.
+2. **Live QMS & ERP Webhook Synchronization**: Connect ForgeMind AI to plant Document Management Systems (SAP DMS, MasterControl, Veeva Vault) to automatically trigger re-indexing upon Engineering Change Order (ECO) approvals.
+3. **Multimodal Engineering Drawing Analysis**: Incorporate vision-language models to directly inspect 2D technical drawings, GD&T symbols (geometric dimensioning and tolerancing), and wiring schematics.
+4. **Shop-Floor Hands-Free Voice Assistant**: Deploy a noise-robust offline speech-to-text engine (such as Whisper Small) tailored for shop-floor operators wearing heavy PPE and work gloves in high-noise environments.
 

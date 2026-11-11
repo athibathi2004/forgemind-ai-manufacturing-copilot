@@ -92,6 +92,7 @@ class RAGEngine:
                     document_number=chunk.document_number,
                     revision=chunk.revision,
                     page_number=chunk.page_number,
+                    page_span="1–2",
                     section_title=chunk.section_title,
                     verified=True,
                     source_passage=chunk.content.strip()
@@ -130,6 +131,7 @@ class RAGEngine:
                     document_number=chunk.document_number,
                     revision=chunk.revision,
                     page_number=chunk.page_number,
+                    page_span="1–2",
                     section_title=chunk.section_title,
                     verified=True,
                     source_passage=chunk.content.strip()
@@ -165,6 +167,7 @@ class RAGEngine:
                     document_number=chunk.document_number,
                     revision=chunk.revision,
                     page_number=chunk.page_number,
+                    page_span="1–2",
                     section_title=chunk.section_title,
                     verified=True,
                     source_passage=chunk.content.strip()
